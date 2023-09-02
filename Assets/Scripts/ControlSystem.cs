@@ -39,12 +39,12 @@ public class ControlSystem : MonoBehaviour
 
         if (h > 0)
         {
-            print("右邊");
+            // print("右邊");
             transform.eulerAngles = new Vector2(0, 0);
         }
         else if (h < 0)
         {
-            print("左邊");
+            // print("左邊");
             transform.eulerAngles = new Vector2(0, 180);
         }
     }
