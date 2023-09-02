@@ -20,6 +20,6 @@ public class WeaponSystem : MonoBehaviour
     private void SpawnWeapon()
     {
         GameObject temp = Instantiate(prefabWeapon, transform.position, transform.rotation);
-        temp.GetComponent<Rigidbody2D>().AddForce(v2Power);
+        temp.GetComponent<Rigidbody2D>().AddForce(v2Power * transform.right + new Vector2(0, v2Power.y));
     }
 }

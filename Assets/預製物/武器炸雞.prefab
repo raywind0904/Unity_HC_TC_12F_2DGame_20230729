@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7955398807296487771}
   - component: {fileID: 7955398807296487775}
   - component: {fileID: 7955398807296487772}
+  - component: {fileID: -5519500285988541233}
   m_Layer: 0
   m_Name: "\u6B66\u5668\u70B8\u96DE"
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: -8116256361858104333, guid: 60beccb521110cf40be533c702156072, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -144,3 +145,14 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.76
+--- !u!247 &-5519500285988541233
+ConstantForce2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7955398807296487768}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0}
+  m_RelativeForce: {x: 0, y: 0}
+  m_Torque: -360
