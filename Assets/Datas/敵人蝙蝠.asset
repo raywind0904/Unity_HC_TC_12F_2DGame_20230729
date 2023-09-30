@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u6575\u4EBA\u8759\u8760"
   m_EditorClassIdentifier: 
   speed: 2.5
-  attack: 20
   hp: 100
+  attack: 20
   expProbability: 0.7
   expPrefab: {fileID: 0}
