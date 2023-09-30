@@ -2,6 +2,7 @@
 
 public class DamageEnemy : DamageBasic
 {
+    #region 碰撞事件
     // 碰撞開始執行一次
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -20,5 +21,28 @@ public class DamageEnemy : DamageBasic
     private void OnCollisionStay2D(Collision2D collision)
     {
         
+    }
+    #endregion
+
+    private DataEnemy dataEnemy;
+
+    private void Start()
+    {
+        dataEnemy = (DataEnemy)data;
+    }
+
+    protected override void Dead()
+    {
+        base.Dead();
+
+        float random = Random.value;
+        print($"<color=#66f>隨機值：{random}</color>");
+
+        if (random <= dataEnemy.expProbability)
+        {
+            Instantiate(dataEnemy.expPrefab, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
     }
 }
