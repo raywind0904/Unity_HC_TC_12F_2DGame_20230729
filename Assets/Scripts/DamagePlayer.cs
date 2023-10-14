@@ -20,6 +20,8 @@ public class DamagePlayer : DamageBasic
 
     public override void Damage(float damage)
     {
+        if (hp <= 0) return;
+
         base.Damage(damage);
 
         imgHp.fillAmount = hp / hpMax;
