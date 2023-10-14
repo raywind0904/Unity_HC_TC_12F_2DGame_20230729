@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class EnemySystem : MonoBehaviour
 {
@@ -7,11 +8,16 @@ public class EnemySystem : MonoBehaviour
 
     public Transform playerPoint;
 
+    private DamagePlayer damagePlayer;
+    private Animator ani;
     private bool canAttack = true;
+    private string parAttack = "觸發攻擊";
 
     private void Awake()
     {
         playerPoint = GameObject.Find("黑貓").transform;
+        damagePlayer = playerPoint.GetComponent<DamagePlayer>();
+        ani = GetComponent<Animator>();
     }
 
     private void Update()
@@ -41,6 +47,15 @@ public class EnemySystem : MonoBehaviour
     private void Attack()
     {
         canAttack = false;
-        print("<color=#66f>攻擊中~</color>");
+        StartCoroutine(AttackEffect());
+    }
+
+    private IEnumerator AttackEffect()
+    {
+        ani.SetTrigger(parAttack);
+        yield return new WaitForSeconds(data.attackSendTime);
+        damagePlayer.Damage(data.attack);
+        yield return new WaitForSeconds(data.attackInterval - data.attackSendTime);
+        canAttack = true;
     }
 }
