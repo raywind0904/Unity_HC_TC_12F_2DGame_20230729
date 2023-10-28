@@ -7,15 +7,19 @@ public class ExpObject : MonoBehaviour
 	private float speed = 3.5f;
 	[SerializeField, Header("吃掉的距離"), Range(0, 30)]
 	private float eatDistance = 3f;
+    [SerializeField, Header("經驗值"), Range(0, 5000)]
+    private float exp = 30;
 
-	private string namePlayer = "黑貓";
+    private string namePlayer = "黑貓";
 	private Transform playerPoint;
+    private LevelManager levelManager;
     #endregion
 
     #region 事件
     private void Awake()
 	{
 		playerPoint = GameObject.Find(namePlayer).transform;
+        levelManager = FindObjectOfType<LevelManager>();
 	}
 
     private void Update()
@@ -37,6 +41,7 @@ public class ExpObject : MonoBehaviour
 
         if (dis < eatDistance)
         {
+            levelManager.AddExp(exp);
             Destroy(gameObject);
         }
     } 
