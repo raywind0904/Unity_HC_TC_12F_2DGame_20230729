@@ -13,7 +13,14 @@ public class LevelManager : MonoBehaviour
     private float expCurrent;
     private float expNeed = 100;
 
+    private SkillManager skillManager;
+
     public float[] expNeeds;
+
+    private void Awake()
+    {
+        skillManager = FindObjectOfType<SkillManager>();
+    }
 
     /* ½m²ßµ{¦¡
     private void Awake()
@@ -70,5 +77,6 @@ public class LevelManager : MonoBehaviour
         expCurrent -= expNeed;
         expNeed = expNeeds[lv - 1];
         imgExp.fillAmount = expCurrent / expNeed;
+        skillManager.LevelUpShowSkillUI();
     }
 }
